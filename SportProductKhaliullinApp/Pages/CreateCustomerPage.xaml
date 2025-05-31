@@ -1,0 +1,83 @@
+﻿<Page x:Class="SportProductKhaliullinApp.Pages.CreateCustomerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportProductKhaliullinApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CreateCustomerPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Добавление покупателя"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="24"/>
+        <TextBox x:Name="FirstnameTb"
+                 Grid.Row="1"
+                 Grid.ColumnSpan="2"
+                 Margin="30 15"
+                 FontSize="22"
+                 VerticalContentAlignment="Center"
+                 Padding="5 0"
+                 Text="Фамилия"/>
+        <TextBox x:Name="LastnameTb"
+          Grid.Row="1"
+                 Grid.Column="2"
+          Grid.ColumnSpan="2"
+          Margin="30 15"
+          FontSize="22"
+          VerticalContentAlignment="Center"
+          Padding="5 0"
+          Text="Имя"/>
+        <TextBox x:Name="PhoneNumberTb"
+          Grid.Row="2"
+          Grid.ColumnSpan="2"
+          Margin="30 15"
+          FontSize="22"
+          VerticalContentAlignment="Center"
+          Padding="5 0"
+          Text="Номер телефона"/>
+        <TextBox x:Name="EmailTb"
+   Grid.Row="2"
+          Grid.Column="2"
+   Grid.ColumnSpan="2"
+   Margin="30 15"
+   FontSize="22"
+   VerticalContentAlignment="Center"
+   Padding="5 0"
+   Text="Email"/>
+        <TextBox x:Name="AddresTb"
+          Grid.Row="3"
+          Grid.ColumnSpan="2"
+          Margin="30 15"
+          FontSize="22"
+          VerticalContentAlignment="Center"
+          Padding="5 0"
+          Text="Адрес"/>
+        <Button x:Name="SaveBtn"
+                Click="SaveBtn_Click"
+                Grid.Row="3"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                Content="Сохранить"
+                Height="70"
+                Width="150"
+                FontSize="22"/>
+    </Grid>
+</Page>
