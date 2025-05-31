@@ -61,5 +61,10 @@ namespace SportProductKhaliullinApp.Pages
         {
 
         }
+
+        private void AddProductBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddProductPage());
+        }
     }
 }

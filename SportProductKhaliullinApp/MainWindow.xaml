@@ -6,7 +6,49 @@
         xmlns:local="clr-namespace:SportProductKhaliullinApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <!-- Анимация для разворачивания меню -->
+        <Storyboard x:Key="ExpandMenu">
+            <DoubleAnimation Storyboard.TargetName="SideMenu"
+                             Storyboard.TargetProperty="Width"
+                             To="200" Duration="0:0:0.3"/>
+        </Storyboard>
+
+        <!-- Анимация для сворачивания меню -->
+        <Storyboard x:Key="CollapseMenu">
+            <DoubleAnimation Storyboard.TargetName="SideMenu"
+                             Storyboard.TargetProperty="Width"
+                             To="50" Duration="0:0:0.3"/>
+        </Storyboard>
+    </Window.Resources>
+
     <Grid>
-        <Frame x:Name="NavFr"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левое меню -->
+        <StackPanel x:Name="SideMenu" Background="#2D2D30" Width="200">
+            <ToggleButton x:Name="BurgerButton" Content="☰"
+                          Width="40" Height="40" Margin="10"
+                          Click="BurgerButton_Click"/>
+
+            <Button Content="🏠 Главная"
+                    x:Name="HomeBtn"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Click="HomeBtn_Click"/>
+            <Button Content="📦 Товары"
+                    x:Name="ProductsBtn"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Click="ProductsBtn_Click"/>
+            <Button Content="🛒 Заказы"
+                    x:Name="OrdersBtn"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Click="OrdersBtn_Click"/>
+        </StackPanel>
+
+        <!-- Контент -->
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

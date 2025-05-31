@@ -55,6 +55,8 @@ namespace SportProductKhaliullinApp.Pages
             products.CategoryID = (CategoryCmb.SelectedItem as Categories).CategoryID;
             DbConnection.sportProductDbEntities.Products.Add(products);
             DbConnection.sportProductDbEntities.SaveChanges();
+            MessageBox.Show($"Товар {NameTb.Text} добавлен успешно");
+            NavigationService.Navigate(new ProductsListPage());
         }
     }
 }
