@@ -22,9 +22,14 @@ namespace SportProductKhaliullinApp.Windows
     {
         public List<Customers> customers { get; set; }
         public List<Manager> manager { get; set; }
-        public CreateOrderWindow()
+        public List<Products> products { get; set; }
+        public static Orders orders = new Orders();
+        public static OrderItems orderItems = new OrderItems();
+        public CreateOrderWindow(Orders orders1)
         {
             InitializeComponent();
+            orders = orders1;
+            products = new List<Products>(DbConnection.sportProductDbEntities.Products.ToList());
             customers = new List<Customers>(DbConnection.sportProductDbEntities.Customers.ToList());
             manager = new List<Manager>(DbConnection.sportProductDbEntities.Manager.ToList());
             this.DataContext = this;
@@ -32,17 +37,16 @@ namespace SportProductKhaliullinApp.Windows
 
         private void AddCustomerBtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomerFr.NavigationService.Navigate(new Pages.CreateCustomerPage());
+            //CustomerFr.NavigationService.Navigate(new Pages.CreateCustomerPage());
         }
 
         private void CreateOrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            Orders orders = new Orders();
+            //Orders orders = new Orders();
             orders.CustomerID = (NamePCmb.SelectedItem as Customers).CustomerID;
-            orders.OrderDate = OrderDateDp.SelectedDate;
+            //orders.OrderDate = OrderDateDp.SelectedDate;
             orders.ManagerID = (ManagerCmb.SelectedItem as Manager).ManagerID;
             orders.TotalAmount = Convert.ToInt32(TotalAmountTb.Text);
-            DbConnection.sportProductDbEntities.Orders.Add(orders);
             DbConnection.sportProductDbEntities.SaveChanges();
             MessageBox.Show("Успешно!");
         }
@@ -51,6 +55,12 @@ namespace SportProductKhaliullinApp.Windows
         {
             KorzinaWindow korzinaWindow = new KorzinaWindow();
             korzinaWindow.Show();
+        }
+
+        private void ChoiseProductCb_Checked(object sender, RoutedEventArgs e)
+        {
+            orderItems.OrderID = orders.OrderID;
+            DbConnection.sportProductDbEntities.OrderItems.Add(orderItems);
         }
     }
 }

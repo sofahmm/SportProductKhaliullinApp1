@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\ASUS\Desktop\SportProductKhaliullinApp-master\SportProductKhaliullinApp\Models\Model2.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\Teacher22\Source\Repos\SportProductKhaliullinApp1\SportProductKhaliullinApp\Models\Model3.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

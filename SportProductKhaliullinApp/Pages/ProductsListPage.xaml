@@ -22,6 +22,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Button x:Name="KorzinaBtn"
+                ToolTip="Добавить в корзину"
+     Click="KorzinaBtn_Click"
+     Height="50"
+     Width="50"
+     Margin="10 0">
+            <Image Source="/Recources/korzina.png"/>
+        </Button>
         <Button Grid.Column="3"
                 Margin="20"
                 FontSize="16"
@@ -32,6 +40,7 @@
                        TextWrapping="Wrap"
                        TextAlignment="Center"/>
         </Button>
+        
         <ListView Grid.Row="1"
                   Grid.ColumnSpan="4"
                   Grid.RowSpan="3"
@@ -59,7 +68,11 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
+                            <CheckBox x:Name="ChoiseProductCb"
+                                      Height="20"
+                                      Checked="ChoiseProductCb_Checked"/>
                             <Image Grid.RowSpan="2"
+                                   Margin="30 0 0 0"
                                Height="100"
                                Width="100">
                                 <Image.Source>
@@ -98,9 +111,6 @@
                                         Click="MinusShtukaBtn_Click">
                                         <Image Source="/Recources/remove.png"/>
                                     </Button>
-                                    <TextBox x:Name="ShtukaTb"
-                                         Margin="10 0"/>
-                                    <TextBlock Text="шт."/>
                                     <Button x:Name="PlusShtukaBtn"
                                         Height="25"
                                         Width="25"
@@ -111,13 +121,7 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Right">
-                                    <Button x:Name="KorzinaBtn"
-                                        Click="KorzinaBtn_Click"
-                                        Height="30"
-                                        Width="30"
-                                        Margin="10 0">
-                                        <Image Source="/Recources/korzina.png"/>
-                                    </Button>
+                                   
                                     <Button x:Name="EditBtn"
                                         Click="EditBtn_Click"
                                         Height="30"

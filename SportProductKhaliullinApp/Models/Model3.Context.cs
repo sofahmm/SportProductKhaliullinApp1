@@ -13,10 +13,10 @@ namespace SportProductKhaliullinApp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SportProductDbEntities1 : DbContext
+    public partial class SportProductDbEntities2 : DbContext
     {
-        public SportProductDbEntities1()
-            : base("name=SportProductDbEntities1")
+        public SportProductDbEntities2()
+            : base("name=SportProductDbEntities2")
         {
         }
     
@@ -32,5 +32,6 @@ namespace SportProductKhaliullinApp.Models
         public virtual DbSet<OrderItems> OrderItems { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

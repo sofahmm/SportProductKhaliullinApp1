@@ -48,7 +48,12 @@ namespace SportProductKhaliullinApp.Pages
 
         private void KorzinaBtn_Click(object sender, RoutedEventArgs e)
         {
-            CreateOrderWindow createOrderWindow = new CreateOrderWindow();
+            Orders orders = new Orders();
+            orders.OrderDate = DateTime.Now;
+            CreateOrderWindow createOrderWindow = new CreateOrderWindow(orders);
+            DbConnection.sportProductDbEntities.Orders.Add(orders);
+            DbConnection.sportProductDbEntities.SaveChanges();
+
             createOrderWindow.Show();
         }
 
@@ -65,6 +70,16 @@ namespace SportProductKhaliullinApp.Pages
         private void AddProductBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddProductPage());
+        }
+
+        private void ChoiseProductCb_Checked(object sender, RoutedEventArgs e)
+        {
+            var p = ProductsLv.SelectedItem as Products;
+            if ((sender as CheckBox).IsChecked == true)
+            {
+                p.IsChoised = true;
+                DbConnection.sportProductDbEntities.SaveChanges();
+            }
         }
     }
 }

@@ -8,6 +8,6 @@ namespace SportProductKhaliullinApp.Models
 {
     internal class DbConnection
     {
-        public static SportProductDbEntities1 sportProductDbEntities = new SportProductDbEntities1();
+        public static SportProductDbEntities2 sportProductDbEntities = new SportProductDbEntities2();
     }
 }

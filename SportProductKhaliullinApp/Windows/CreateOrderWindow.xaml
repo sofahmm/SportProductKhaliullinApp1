@@ -121,12 +121,115 @@
                 HorizontalAlignment="Right"
                 FontSize="22"/>
 
-        <Frame Grid.Column="2"
+        <ListView Grid.Row="1"
+          Grid.ColumnSpan="2"
+          Grid.RowSpan="3"
+                  Grid.Column="2"
+          x:Name="ProductsLv"
+          ItemsSource="{Binding products}"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          HorizontalContentAlignment="Stretch"
+          VerticalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1"
+                    BorderBrush="Gray">
+
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <CheckBox x:Name="ChoiseProductCb"
+                                      Height="20"
+                                      Checked="ChoiseProductCb_Checked"/>
+                            <Image Grid.RowSpan="2"
+                           Margin="30 0 0 0"
+                       Height="100"
+                       Width="100">
+                                <Image.Source>
+                                    <Binding Path="ImageUrl">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/Recources/pusto.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <StackPanel Grid.Column="1"
+                            Margin="10 0">
+                                <TextBlock VerticalAlignment="Center"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Text="{Binding Name}"/>
+                                <TextBlock VerticalAlignment="Center"
+                               FontSize="14"
+                               Text="{Binding Categories.Name, StringFormat={}Категория {0}}"/>
+                                <TextBlock VerticalAlignment="Center"
+                               Text="{Binding Stock, StringFormat={} Остаток {0}}"/>
+                                <TextBlock VerticalAlignment="Center"
+                               Text="{Binding Price, StringFormat={} Цена(шт) {0}}"/>
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Vertical"
+                            Grid.Column="2"
+                            Grid.RowSpan="3"
+                            HorizontalAlignment="Center">-->
+                                <!--<StackPanel Orientation="Horizontal"
+                                    Margin="0 5"
+                                    HorizontalAlignment="Right">
+                                    <Button x:Name="MinusShtukaBtn"
+                                Height="25"
+                                Width="25"
+                                Margin="10 0"
+                                Click="MinusShtukaBtn_Click">
+                                        <Image Source="/Recources/remove.png"/>
+                                    </Button>
+                                    <Button x:Name="PlusShtukaBtn"
+                                Height="25"
+                                Width="25"
+                                Margin="10 0"
+                                Click="PlusShtukaBtn_Click">
+                                        <Image Source="/Recources/plus.png"/>
+                                    </Button>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right">
+
+                                    <Button x:Name="EditBtn"
+                                Click="EditBtn_Click"
+                                Height="30"
+                                Width="30"
+                                Margin="10 0">
+                                        <Image Source="/Recources/edit.png"/>
+                                    </Button>
+                                    <Button x:Name="DeleteBtn"
+                                Click="DeleteBtn_Click"
+                                Height="30"
+                                Width="30"
+                                Margin="10 0">
+                                        <Image Source="/Recources/delete.png"/>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>-->
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<Frame Grid.Column="2"
                Grid.ColumnSpan="2"
                Grid.Row="1"
                Grid.RowSpan="4"
                x:Name="CustomerFr"
-               NavigationUIVisibility="Hidden"/>
+               NavigationUIVisibility="Hidden"/>-->
         <Button x:Name="CreateOrderBtn"
                 Content="Сформировать заказ"
                 Grid.Column="2"

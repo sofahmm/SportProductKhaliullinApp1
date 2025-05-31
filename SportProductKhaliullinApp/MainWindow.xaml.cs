@@ -25,7 +25,7 @@ namespace SportProductKhaliullinApp
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new Pages.ProductsListPage());
+            
         }
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -34,7 +34,7 @@ namespace SportProductKhaliullinApp
 
         private void ProductsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.NavigationService.Navigate(new Pages.ProductsListPage());
         }
 
         private void OrdersBtn_Click(object sender, RoutedEventArgs e)
